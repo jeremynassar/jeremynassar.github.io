@@ -1,18 +1,11 @@
-const newTaskForm = document.querySelector('#newTaskForm');
-newTaskForm.addEventListener('submit', (event) => {
+           const task = new TaskManager();
 
-            event.preventDefault();
+           let addButton = document.getElementById('addbtn');
+           let deleteButton = document.getElementById('deletebtn');
 
-            const newTaskNameInput = document.querySelector('#newTaskNameInput');
+           function showTask() {
+               newAddButton = addButton.value;
+               TaskManager.addTask(name, description, assignedTo, dueDate, status);
+           }
 
-
-
-
-            const task = new TaskManager();
-
-            let addButton = document.getElementById('addbtn');
-            let deleteButton = document.getElementById('deletebtn');
-
-            function showTask() {
-
-            }
+           addButton.addEventListener("click", showTask);
