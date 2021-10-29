@@ -5,7 +5,7 @@
 
            function showTask() {
                newAddButton = addButton.value;
-               TaskManager.addTask(name, description, assignedTo, dueDate, status);
+       TaskManager.addTask(name, description, assignedTo, dueDate, status);
            }
 
-           addButton.addEventListener("click", showTask);
+         addButton.addEventListener("click", showTask);

@@ -1,7 +1,58 @@
+let createTaskHtml = (name,description,assignedTo,status,dueDate) => {
+    const html = ` <div class="row">
+    <div class="col">
+      <h3>${name}</h3>
+    </div>
+    </div>
+    </form>
+    <form>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Task name">
+  </div>
+  </form>
+    <br>
+   <div class="row">
+    <div class="col">
+     <h3>${description}</h3>
+    </div>
+    </div>
+     <form>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Description">
+    </div>
+    </form>
+     <br>
+  <div class="row">
+    <div class="col">
+     <h3>${assignedTo}</h3>
+    </div>
+    </div>
+     <form>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Placeholder">
+    </div>
+     <br>
+    </form>
+    <div class="row">
+    <div class="col">
+     <h3>${status}</h3>
+    </div>
+    </div>
+    <form>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Select">
+    </div>
+    </form>
+     <br>
+     <div class="row">
+      <div class="col">
+      <h3>${dueDate}</h3>`
+}
+
 class TaskManager {
-    constructor() {
+    constructor(currentId = 0) {
         this.tasks = []; 
-        this.currentId = 0;
+        this.currentId = currentId;
     }
     
    addTask (name,description,assignedTo,dueDate, status = "TO DO") {
