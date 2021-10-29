@@ -1,4 +1,4 @@
-let createTaskHtml = (name,description,assignedTo,status,dueDate) => {
+let createTaskHtml = (name, description, assignedTo, status, dueDate) => {
     const html = ` <div class="row">
     <div class="col">
       <h3>${name}</h3>
@@ -51,18 +51,32 @@ let createTaskHtml = (name,description,assignedTo,status,dueDate) => {
 
 class TaskManager {
     constructor(currentId = 0) {
-        this.tasks = []; 
+        this.tasks = [];
         this.currentId = currentId;
+        render(); {
+            const taskHtmlList = [];
+
+            for (let i = 0; i < this.tasks.length; i++) {
+
+                const task = this.tasks[i];
+                const date = new Date(task.dueDate);
+                const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+                const taskHtml = createTaskHtml(task.name, task.description, task.assignedTo, formattedDate, task.status);
+                tasksHtmlList.push(taskHtml);
+            }
+            const tasksHtml = tasksHtmlList.join('\n');
+            const tasksList = document.querySelector('#tasksList');
+            tasksList.innerHTML = tasksHtml;
+        }
+
+        addTask(name, description, assignedTo, dueDate, status = "TO DO"); {
+            this.currentId++;
+            this.tasks.push(this.currentId, name, description, assignedTo, dueDate, status);
+        }
     }
-    
-   addTask (name,description,assignedTo,dueDate, status = "TO DO") {
-        this.currentId++;
-        this.tasks.push(this.currentId, name , description, assignedTo,dueDate,status);
-    } 
+
 }
 
-
-const randomTask = new TaskManager ();
+const randomTask = new TaskManager();
 console.log(randomTask.tasks)
-randomTask.addTask('Project','finsh project', 'jeremy', '10-29-21');
-
+randomTask.addTask('Project', 'finsh project', 'jeremy', '10-29-21');
