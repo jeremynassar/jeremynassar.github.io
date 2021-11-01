@@ -1,11 +1,29 @@
-           const task = new TaskManager();
+           const taskManager = new TaskManager(0);
 
-           let addButton = document.getElementById('addbtn');
-           let deleteButton = document.getElementById('deletebtn');
+           const newTaskForm = document.querySelector('#newTaskForm');
 
-           function showTask() {
-               newAddButton = addButton.value;
-       TaskManager.addTask(name, description, assignedTo, dueDate, status);
-           }
+           newTaskForm.addEventListener('submit', (event) => {
+               event.preventDefault();
 
-         addButton.addEventListener("click", showTask);
+               const newTaskNameInput = document.querySelector('#newTaskNameInput');
+               const newTaskDescription = document.querySelector('#newTaskDescription');
+               const newTaskAssignedTo = document.querySelector('#newTaskAssignedTo');
+               const newTaskDueDate = document.querySelector('#newTaskDueDate');
+
+               const name = newTaskNameInput.value;
+               const description = newTaskDescription.value;
+               const assignedTo = newTaskAssignedTo.value;
+               const dueDate = newTaskDueDate.value;
+
+
+               taskManager.addTask(name, description, assignedTo, dueDate, status);
+
+
+               taskManager.render();
+
+               newTaskNameInput.value = '';
+               newTaskDescription.value = '';
+               newTaskAssignedTo.value = '';
+               newTaskDueDate.value = '';
+
+           });
