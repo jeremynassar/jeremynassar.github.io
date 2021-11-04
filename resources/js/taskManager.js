@@ -1,56 +1,51 @@
-const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
-    `const html = <div class="row">
+const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
+    ` <div  class="row">
     <div class="col">
-      <h3>${name}</h3>
+      <h3 id= "newTaskNameInput">${name}</h3>
     </div>
     </div>
-    </form>
-    <form>
     <div class="col">
       <input type="text" class="form-control" placeholder="Task name">
   </div>
-  </form>
     <br>
    <div class="row">
     <div class="col">
-     <h3>${description}</h3>
+     <h3 id="newTaskDescription">${description}</h3>
     </div>
     </div>
-     <form>
     <div class="col">
       <input type="text" class="form-control" placeholder="Description">
     </div>
-    </form>
      <br>
   <div class="row">
     <div class="col">
-     <h3>${assignedTo}</h3>
+     <h3 id="newTaskAssignedTo">Assigned To: ${assignedTo}</h3>
     </div>
     </div>
-     <form>
     <div class="col">
       <input type="text" class="form-control" placeholder="Placeholder">
     </div>
      <br>
-    </form>
     <div class="row">
     <div class="col">
      <h3>${status}</h3>
     </div>
     </div>
-    <form>
     <div class="col">
       <input type="text" class="form-control" placeholder="Select">
     </div>
-    </form>
      <br>
      <div class="row">
       <div class="col">
-      <h3>${dueDate}</h3>`
-}
+      <h3 id="newTaskDueDate">Due Date: ${dueDate}</h3>
+        <input type="date" name="begin" 
+        placeholder="dd-mm-yyyy" value=""
+        min="1997-01-01" max="2030-12-31">
+        </div>
+        </div>`};
 
 class TaskManager {
-    constructor(currentId = 0) {
+    constructor(currentId = 1) {
         this.tasks = [];
         this.currentId = currentId;
 
@@ -78,15 +73,12 @@ class TaskManager {
 
             const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
             const taskHtml = createTaskHtml(task.id, task.name, task.description, task.assignedTo, formattedDate, task.status);
-
-            tasksHtmlList.push(taskHtml);
+            taskHtmlList.push(taskHtml);
         }
-        const tasksHtml = tasksHtmlList.join('\n');
+        const tasksHtml = taskHtmlList.join('\n');
         const tasksList = document.querySelector('#tasksList');
         tasksList.innerHTML = tasksHtml;
     }
 }
 
-const randomTask = new TaskManager();
-console.log(randomTask.tasks)
-randomTask.addTask('Project', 'finsh project', 'jeremy', '10-29-21');
+

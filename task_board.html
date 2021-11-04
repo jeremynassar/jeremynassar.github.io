@@ -28,14 +28,65 @@
           </ul>
         </div>
       </nav>
-      <div class="list-group">
+      <form id="newTaskForm">
+        <div class="row">
+          <div class="col">
+            <h3 >Task Name</h3>
+          </div>
+          </div>
+          <div class="col">
+            <input id= "newTaskNameInput" type="text" class="form-control" placeholder="Task name">
+        </div>
+          <br>
+         <div class="row">
+          <div class="col">
+           <h3 >Description</h3>
+          </div>
+          </div>
+          <div class="col">
+            <input id="newTaskDescription" type="text" class="form-control" placeholder="Description">
+          </div>
+           <br>
+        <div class="row">
+          <div class="col">
+           <h3 >Assigned To</h3>
+          </div>
+          </div>
+          <div class="col">
+            <input id="newTaskAssignedTo" type="text" class="form-control" placeholder="Placeholder">
+          </div>
+           <br>
+          <div class="row">
+          <div class="col">
+           <h3>Status</h3>
+          </div>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Select">
+          </div>
+           <br>
+           <div class="row">
+            <div class="col">
+            <h3 >Due Date</h3>
+              <input id="newTaskDueDate" type="date" name="begin" 
+              placeholder="dd-mm-yyyy" value=""
+              min="1997-01-01" max="2030-12-31">
+              </div>
+              </div>
+              <br>
+             <a href="#" id = "deletebtn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete</a>
+             <button type="submit" class="btn btn-primary btn-lg active">Add Task</button>
+             </form>
+      <div id="tasksList" class="list-group">
   <a href="#" class="list-group-item list-group-item-action active">
     Cras justo odio
   </a>
-  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+  <a href="#" class="list-group-item list-group-item-action"></a>
   <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
   <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
   <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
 </div>
+  <script src="./resources/js/taskManager.js"></script>
+  <script src="./resources/js/index.js"></script>
     </body>
 </html>
