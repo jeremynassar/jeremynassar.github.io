@@ -1,4 +1,5 @@
            const task = new TaskManager;
+
              //console.log(task.tasks);
         //    console.log(task.addTask("project", "Finish project", "Jeremy", "11/12/21"))
           const newTaskForm = document.querySelector('#newTaskForm');
@@ -33,6 +34,8 @@
                console.log(name + ' ' + description + ' ' + assignedTo + ' ' + dueDate);
 
              task.addTask(name, description, assignedTo, dueDate);
+             
+             task.render();
             
 
                newTaskNameInput.value = '';
@@ -41,6 +44,7 @@
                newTaskDueDate.value = '';    })
             
                console.log(task.tasks)
+               
 
         //        taskManager.render();
 
