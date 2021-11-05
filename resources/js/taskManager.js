@@ -1,48 +1,41 @@
-const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
-    ` <div  class="row">
-    <div class="col">
-      <h3 id= "newTaskNameInput">${name}</h3>
-    </div>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Task name">
-  </div>
-    <br>
-   <div class="row">
-    <div class="col">
-     <h3 id="newTaskDescription">${description}</h3>
-    </div>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Description">
-    </div>
-     <br>
-  <div class="row">
-    <div class="col">
-     <h3 id="newTaskAssignedTo">Assigned To: ${assignedTo}</h3>
-    </div>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Placeholder">
-    </div>
-     <br>
-    <div class="row">
-    <div class="col">
-     <h3>${status}</h3>
-    </div>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Select">
-    </div>
-     <br>
-     <div class="row">
-      <div class="col">
-      <h3 id="newTaskDueDate">Due Date: ${dueDate}</h3>
-        <input type="date" name="begin" 
-        placeholder="dd-mm-yyyy" value=""
-        min="1997-01-01" max="2030-12-31">
+const createTaskHtml = (id,name, description, assignedTo, dueDate, status) => {
+  const html = 
+    ` <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+      <h2 class="card-title" >Card#${id}</h2>
+<table class="table table-borderless">
+  <tbody>
+    <tr>
+      <td class="fw-bold">Project</td>
+      <td id>${name}</td>
+    </tr>
+    <tr>
+      <td class="fw-bold">Description</td>
+      <td>${description}</td>
+    </tr>
+    <tr>
+      <td class="fw-bold">Assigned To</td>
+      <td >${assignedTo}</td>
+    </tr>
+    <tr>
+      <td class="fw-bold">Due Date</td>
+      <td>${dueDate}</td>
+    </tr>
+    <tr>
+      <td class="fw-bold">Status</td>
+      <td class="${status === 'TODO' ? 'badge-danger' : 'badge-success'}">${status}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="d-grid gap-2 d-md-block">
+          <a href="#" class="btn btn-success ${status === 'TODO' ? 'visible' : 'invisible'}" role="button" >Mark As Done</a>
+            <a href="#" class="btn btn-danger" role="button" >Delete</a>
         </div>
-        </div>`};
+      </div>
+    </div>
+  </div>`
+  return html};
 
 class TaskManager {
     constructor(currentId = 1) {
