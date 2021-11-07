@@ -24,7 +24,11 @@ backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
-    
+    padding-right: 15px ;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 105px;
 }
 
 .main{
