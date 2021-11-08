@@ -1,4 +1,4 @@
-           function main() {
+
            const taskManager = new TaskManager;
 
            taskManager.load();
@@ -13,56 +13,62 @@
                const newTaskDescription = document.querySelector('#newTaskDescription');
                const newTaskAssignedTo = document.querySelector('#newTaskAssignedTo');
                const newTaskDueDate = document.querySelector('#newTaskDueDate');
-
-               if (newTaskNameInput.length <= 4) {
-                document.querySelector("#errorName").style.display = "block";
-                document.querySelector("#success").style.display = "none";
-            } else {
-                document.querySelector("#errorName").style.display = "none";
-            };
-            if (newTaskDescription.length <= 6) {
-                document.querySelector("#errorDescription").style.display = "block";
-                document.querySelector("#success").style.display = "none";
-            } else {
-                document.querySelector("#errorDescription").style.display = "none";
-            };
-            if (newTaskAssignedTo.length <= 1) {
-                document.querySelector("#errorAssignedTo").style.display = "block";
-                document.querySelector("#success").style.display = "none";
-            } else {
-                document.querySelector("#errorAssignedTo").style.display = "none";
-            };
-            if ((newTaskDueDate.length > 4) && (description.length > 6) && (assignedTo.length > 1)) {
-                document.querySelector(".alert-danger").style.display = "none";
-                document.querySelector("#success").style.display = "block";
-                newTask.addTask(name, description, assignedTo, dueDate);
-                newTask.save();
-                newTask.render();
-                nameInput.value = '';
-                descriptionInput.value = '';
-                assignedToInput.value = '';
-                dueDateInput.value = '';
-            };
-
-
                const name = newTaskNameInput.value;
                const description = newTaskDescription.value;
                const assignedTo = newTaskAssignedTo.value;
                const dueDate = newTaskDueDate.value;
 
-               console.log(name + ' ' + description + ' ' + assignedTo + ' ' + dueDate);
+               if (name.length <= 4) {
+                document.querySelector("#errorName").style.display = "block";
+                document.querySelector("#success").style.display = "none";
+            } else {
+                document.querySelector("#errorName").style.display = "none";
+            };
+            if (description.length <= 6) {
+                document.querySelector("#errorDescription").style.display = "block";
+                document.querySelector("#success").style.display = "none";
+            } else {
+                document.querySelector("#errorDescription").style.display = "none";
+            };
+            if (assignedTo.length <= 1) {
+                document.querySelector("#errorAssignedTo").style.display = "block";
+                document.querySelector("#success").style.display = "none";
+            } else {
+                document.querySelector("#errorAssignedTo").style.display = "none";
+            };
+            if ((dueDate.length > 4) && (description.length > 6) && (assignedTo.length > 1)) {
+                document.querySelector(".alert-danger").style.display = "none";
+                document.querySelector("#success").style.display = "block";
+                
+              taskManager.addTask(name, description, assignedTo, dueDate);
+                taskManager.save();
+                taskManager.render();
+                newTaskNameInput.value = '';
+                newTaskDescription.value = '';
+                newTaskAssignedTo.value = '';
+                newTaskDueDate.value = ''; 
+            };
+          });
 
-             taskManager.addTask(name, description, assignedTo, dueDate);
 
-             taskManager.save();
+              //  const name = newTaskNameInput.value;
+              //  const description = newTaskDescription.value;
+              //  const assignedTo = newTaskAssignedTo.value;
+              //  const dueDate = newTaskDueDate.value;
+
+            //    console.log(name + ' ' + description + ' ' + assignedTo + ' ' + dueDate);
+
+            //  taskManager.addTask(name, description, assignedTo, dueDate);
+
+            //  taskManager.save();
              
-             taskManager.render();
+            //  taskManager.render();
             
 
-               newTaskNameInput.value = '';
-               newTaskDescription.value = '';
-               newTaskAssignedTo.value = '';
-               newTaskDueDate.value = '';    })
+              //  newTaskNameInput.value = '';
+              //  newTaskDescription.value = '';
+              //  newTaskAssignedTo.value = '';
+              //  newTaskDueDate.value = '';    })
             
                console.log(taskManager.tasks)
                
@@ -97,4 +103,4 @@
     }
 
       })
-    }
+  

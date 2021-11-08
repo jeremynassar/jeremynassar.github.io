@@ -29,10 +29,13 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     padding-top: 15px;
     padding-bottom: 15px;
     margin-left: 105px;
+    margin-top: 15px;
+    margin-right: 18px;
+    
 }
 
 .main{
-    background: rgba( 9, 107, 139, 0.25 );
+    background: rgba(  247, 242, 225, 1 );
 }
 
 
@@ -42,3 +45,12 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     background-image: url("/resources/images/workload.jpg");
     background-size: cover;
 }*/
+
+.main2{
+    background: rgba( 247, 242, 225, 1  );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}

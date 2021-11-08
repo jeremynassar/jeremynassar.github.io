@@ -3,7 +3,7 @@ const createTaskHtml = (id,name, description, assignedTo, dueDate, status) => {
     ` <div class="col" data-task-id=${id}>
     <div class="card h-100">
       <div class="card-body">
-      <h2 class="card-title" >Card Number${id}</h2>
+      <h2 class="card-title" >${name}</h2>
 <table class="table table-borderless">
   <tbody>
     <tr>
@@ -117,6 +117,10 @@ class TaskManager {
     this.render();
     }
  
+  }
+
+  module.exports = {
+    TaskManager: TaskManager
   }
 
 
